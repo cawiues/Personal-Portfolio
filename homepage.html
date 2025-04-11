@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Homepage Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+   @media (max-width: 770px) {
+      .nav a {
+        font-size: 0.7rem;
+      }
+   }
+    @keyframes shadowColorChange {
+  0% {
+    box-shadow: 0 4px 6px rgb(159, 8, 235);
+  }
+  25% {
+    box-shadow: 0 4px 6px rgb(213, 7, 203);
+  }
+  50% {
+    box-shadow: 0 4px 6px rgb(216, 14, 179);
+  }
+  75% {
+    box-shadow: 0 4px 6px rgb(232, 22, 204);
+  }
+  100% {
+    box-shadow: 0 4px 6px rgb(159, 8, 235);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+cursor {
+  cursor: url('images/Little_Bunny_Blue__FIXED__Cursors-removebg-preview.png');
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 9%;
+  width: 100%;
+  background-color: #9373b3;
+  z-index: 2000;
+  box-shadow: 0 0.25rem 0.375rem rgba(130, 68, 161, 0.157);
+  border-bottom: 0.25rem solid #4f2f46;
+  border-radius: 0.625rem;
+  background-image: url('images/gif clouds.gif');
+  background-size: 20%;
+  background-position: center;
+}
+
+.logo {
+  position: relative;
+  width: 10rem;
+  height: auto;
+}
+
+body {
+  font-size: 16px;
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #000;
+  text-align: center;
+  padding: 20px;
+  padding-top: 80px;
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@font-face {
+        font-family: 'presstart';
+        src: url('FONTS/PressStart2P-Regular.ttf') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+
+@font-face {
+  font-family: 'Nine by Five';
+  src: url('https://cdn.cdnfonts.com/s/17493/NineByFive.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'upheavtt';
+  src: url('FONTS/upheavtt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PixelGame';
+  src: url('FONTS/Pixel Game.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bytebounce';
+  src: url('FONTS/ByteBounce.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nav {
+  position: static;
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #e99cdbac;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.3125rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  box-shadow: 0 0.25rem #f8ecce;
+  transition: all 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: bytebounce;
+}
+
+.nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: left 0.3s ease;
+  z-index: 1;
+}
+
+.nav a:hover::before {
+  left: 0;
+}
+
+.nav a:hover {
+  background-color: #d896ff;
+  box-shadow: 0 0.125rem #5d1a8c;
+  transform: translateY(-0.1875rem);
+  color: #000;
+}
+
+.container {
+  position: relative;
+  margin: 50px auto;
+  width: 1200px;
+  height: 480px;
+  background: linear-gradient(to bottom, #f9d6f7, #f9a8d4);
+  border: 5px solid #764672;
+  border-radius: 15px;
+  text-align: center;
+  padding: 50px 20px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.slide-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.side-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 90px;
+  border-radius: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.side-button img {
+  width: 130px;
+  height: 55px;
+}
+
+.side-button.left {
+  left: -70px;
+}
+
+.side-button.right {
+  right: -70px;
+}
+
+.side-button:hover img {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.read-more {
+  margin-top: 20px;
+  display: inline-block;
+  font-family: 'Nine by Five', monospace;
+  font-size: 14px;
+  color: #fff;
+  outline-color: #000;
+  background-color: #b87badd2;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  text-transform: uppercase;
+  box-shadow: 0 4px #f8ecce;
+  transition: all 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: bytebounce;
+}
+
+.read-more::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: left 0.3s ease;
+  z-index: 1;
+}
+
+.read-more:hover::before {
+  left: 0;
+}
+
+.read-more:hover {
+  background-color: #d896ff;
+  box-shadow: 0 2px #5d1a8c;
+  transform: translateY(-3px);
+  color: #000;
+}
+
+.designs-section {
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
+
+.projects-section {
+  width: 45%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
+
+.designs-title,
+.projects-title {
+  font-size: 18px;
+  color: #764672;
+  margin-bottom: 20px;
+}
+
+.designs-container,
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.design-box,
+.project-box {
+  width: 45%;
+  height: 100px;
+  background: linear-gradient(to bottom, #f9d6f7, #f9a8d4);
+  border: 3px solid #764672;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  
+}
+
+.design-box:hover,
+.project-box:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.design-read-more,
+.project-read-more {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #764672;
+  text-decoration: none;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.design-read-more:hover,
+.project-read-more:hover {
+  color: #000;
+}
+
+.slide3-button {
+  font-family: 'presstart';
+  font-size: 15px;
+  background-color: #000000fd;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  position: absolute;
+  right: 420px;
+  top: 30%;
+  transform: translateY(-50%);
+}
+
+
+.slide3-button:hover {
+  font-family: 'presstart';
+  font-size: 15px;
+  background-color: #0501013c;
+  color: #ffffffe6;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  position: absolute;
+  transform: translateY(-50%);
+}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/LOGO-removebg-preview.webp" alt="Logo" class="logo">
+    <div class="nav">
+      <a href="homepage.html">HOME</a>
+      <a href="aboutme.html">ABOUT ME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="design.html">DESIGNS</a>
+      <a href="contactme.html#">CONTACT</a>
+    </div>
+  </header>
+  <div class="container">
+    <div class="side-button left">
+      <img src="images/left_button_arrow-removebg-preview - Copy.png" alt="Left">
+    </div>
+    <div class="side-button right">
+      <img src="images/right_button_arrow-removebg-preview.png" alt="Right">
+    </div>
+
+    <script>
+      const container = document.querySelector('.container');
+      const leftButton = document.querySelector('.side-button.left');
+      const rightButton = document.querySelector('.side-button.right');
+
+      let currentIndex = 0;
+      const slides = [
+        {
+          content: `
+            <video autoplay muted loop style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+              <source src="video/welcome banner.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          `,
+        },
+        {
+          content: `
+            <img src="images/about me banner.gif" alt="Slide 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+            <a href="aboutme.html" class="read-more" style="position: absolute; left: 205px; top: 63%; transform: translateY(-50%);">Click Here to View</a>
+          `,
+        },
+        {
+          content: `
+            <video autoplay muted loop style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+              <source src="video/project banner.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <a href="projects.html" class="slide3-button">YES?</a>
+          `,
+        },
+      ];
+
+      let autoSlideInterval;
+
+      function updateSlide() {
+        const slideContent = document.createElement('div');
+        slideContent.className = 'slide-content';
+        slideContent.innerHTML = slides[currentIndex].content;
+
+        const existingSlide = container.querySelector('.slide-content');
+        if (existingSlide) {
+          existingSlide.style.opacity = 0; // Start fade-out effect
+          setTimeout(() => {
+            container.removeChild(existingSlide);
+            container.appendChild(slideContent);
+            slideContent.style.opacity = 1; // Start fade-in effect
+
+            // Autoplay video if the current slide contains a video
+            const video = slideContent.querySelector('video');
+            if (video) {
+              video.play();
+            }
+          }, 500); // Duration of the fade-out effect
+        } else {
+          container.appendChild(slideContent);
+          slideContent.style.opacity = 1; // Ensure fade-in effect for the first slide
+
+          // Autoplay video if the current slide contains a video
+          const video = slideContent.querySelector('video');
+          if (video) {
+            video.play();
+          }
+        }
+      }
+
+      function showPreviousSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide();
+        resetAutoSlide();
+      }
+
+      function showNextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide();
+        resetAutoSlide();
+      }
+
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+          showNextSlide();
+        }, 10000); // 10 seconds
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      leftButton.addEventListener('click', showPreviousSlide);
+      rightButton.addEventListener('click', showNextSlide);
+
+      updateSlide(); // Initialize the first slide
+      startAutoSlide(); // Start automatic slide transition
+    </script>
+  </div>
+  <div class="designs-section">
+    <div class="designs-title">DESIGNS</div>
+    <div class="designs-container">
+      <div class="design-box"></div>
+      <div class="design-box"></div>
+    </div>
+    <a href="#" class="design-read-more">View More</a>
+  </div>
+  <div class="projects-section">
+    <div class="projects-title">PROJECTS</div>
+    <div class="projects-container">
+      <div class="project-box"></div>
+      <div class="project-box"></div>
+      <div class="project-box"></div>
+      <div class="project-box"></div>
+    </div>
+    <a href="#" class="project-read-more">View More</a>
+  </div>
+</body>
+</html>

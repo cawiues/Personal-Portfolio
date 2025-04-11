@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Homepage Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+   @media (max-width: 770px) {
+      .nav a {
+        font-size: 0.7rem;
+      }
+   }
+    @keyframes shadowColorChange {
+  0% {
+    box-shadow: 0 4px 6px rgb(159, 8, 235);
+  }
+  25% {
+    box-shadow: 0 4px 6px rgb(213, 7, 203);
+  }
+  50% {
+    box-shadow: 0 4px 6px rgb(216, 14, 179);
+  }
+  75% {
+    box-shadow: 0 4px 6px rgb(232, 22, 204);
+  }
+  100% {
+    box-shadow: 0 4px 6px rgb(159, 8, 235);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+cursor {
+  cursor: url('images/Little_Bunny_Blue__FIXED__Cursors-removebg-preview.png');
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 9%;
+  width: 100%;
+  background-color: #9373b3;
+  z-index: 2000;
+  box-shadow: 0 0.25rem 0.375rem rgba(130, 68, 161, 0.157);
+  border-bottom: 0.25rem solid #4f2f46;
+  border-radius: 0.625rem;
+  background-image: url('images/gif clouds.gif');
+  background-size: 20%;
+  background-position: center;
+}
+
+.logo {
+  position: relative;
+  width: 10rem;
+  height: auto;
+}
+
+body {
+  font-size: 16px;
+  background: url('images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #000;
+  text-align: center;
+  padding: 20px;
+  padding-top: 80px;
+  overflow: hidden; /* Disable scroll bar */
+}
+
+.content {
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@font-face {
+  font-family: 'presstart';
+  src: url('FONTS/PressStart2P-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nine by Five';
+  src: url('https://cdn.cdnfonts.com/s/17493/NineByFive.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'upheavtt';
+  src: url('FONTS/upheavtt.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PixelGame';
+  src: url('FONTS/Pixel Game.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bytebounce';
+  src: url('FONTS/ByteBounce.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.nav {
+  position: static;
+  display: flex;
+  gap: 1rem;
+  font-size: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #e99cdbac;
+  padding: 0.625rem 0.9375rem;
+  border-radius: 0.3125rem;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  box-shadow: 0 0.25rem #f8ecce;
+  transition: all 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: bytebounce;
+}
+
+.nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: left 0.3s ease;
+  z-index: 1;
+}
+
+.nav a:hover::before {
+  left: 0;
+}
+
+.nav a:hover {
+  background-color: #d896ff;
+  box-shadow: 0 0.125rem #5d1a8c;
+  transform: translateY(-0.1875rem);
+  color: #000;
+}
+
+.big-container {
+  width: 1100px;
+  margin: 2% auto;
+  height: 450px;
+  background: linear-gradient(to bottom, #f8e8f8, #f4c2f4);
+  border: 5px solid #764672;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.small-container {
+  width: 1100px;
+  margin: 30px auto;
+  height: 130px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #ffffff, #f7e5e5);
+  border: 5px solid #764672;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-family: 'Nine by Five', sans-serif;
+}
+
+.small-container h2 {
+  font-size: 1.8rem;
+  color: #000000;
+  margin-bottom: 10px;
+  font-family: presstart;
+}
+
+.small-container p {
+  font-size: 1rem;
+  color: #000000;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.side-button {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 90px;
+  height: 80px;
+  margin: 1.5%;
+  position: absolute;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: none;
+  border: none;
+  
+}
+
+.side-button:hover img {
+  filter: brightness(1.2);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+
+.side-button img {
+  width: 100%;
+  height: 100%;
+}
+
+.left-button {
+  left: 20px;
+}
+
+.right-button {
+  right: 20px;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <img src="images/LOGO-removebg-preview.webp" alt="Logo" class="logo">
+    <div class="nav">
+      <a href="homepage.html">HOME</a>
+      <a href="aboutme.html">ABOUT ME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="design.html">DESIGNS</a>
+      <a href="contactme.html#">CONTACT</a>
+    </div>
+  </header>
+  <div class="big-container">
+    <div class="slider">
+      <div class="slide active">
+        <img src="images/slide1.jpg" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="images/slide2.jpg" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="images/slide3.jpg" alt="Slide 3">
+      </div>
+      <div class="slide">
+        <img src="images/slide4.jpg" alt="Slide 4">
+      </div>
+    </div>
+  </div>
+  <div class="small-container">
+    <h2 id="slide-title">Slide 1 Title</h2>
+    <p id="slide-description">Slide 1 Description</p>
+  </div>
+  <button class="side-button left-button" onclick="moveSlide(-1)">
+    <img src="images/left2_button_arrow-removebg-preview.png" alt="Left Button">
+  </button>
+  <button class="side-button right-button" onclick="moveSlide(1)">
+    <img src="images/right2_button_arrow-removebg-preview.png" alt="Right Button">
+  </button>
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const slideTitles = ["Space Invaders", "Slide 2 Title", "Slide 3 Title", "Slide 4 Title"];
+    const slideDescriptions = ["Slide 1 Description"
+    
+    
+    
+    
+    , "Slide 2 Description", "Slide 3 Description", "Slide 4 Description"];
+    const titleElement = document.getElementById('slide-title');
+    const descriptionElement = document.getElementById('slide-description');
+
+    function moveSlide(direction) {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + direction + slides.length) % slides.length;
+      slides[currentSlide].classList.add('active');
+      titleElement.textContent = slideTitles[currentSlide];
+      descriptionElement.textContent = slideDescriptions[currentSlide];
+    }
+  </script>
+</body>
+</html>
