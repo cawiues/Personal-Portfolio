@@ -73,7 +73,7 @@
           background-size: cover;   
         
           color: #000;
-          background: url('images/ABOUTMEBG1.png') no-repeat center center fixed;
+          background: url('images/background.jpg') no-repeat center center fixed;
           background-size: cover;
   color: #000;
   text-align: center;
@@ -253,6 +253,75 @@
         text-shadow: 2px 2px 4px rgba(66, 10, 72, 0.546); /* Add shadow effect */
       }
 
+      .left-container {
+        position: relative;
+        margin: 3% auto; /* Center horizontally */
+        top: 20%; /* Maintain vertical position */
+        width: 700px;
+        padding: 20px;
+        background: linear-gradient(to bottom, #ffffff, #f7e5e5);
+        border: 5px solid #764672;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: left;
+        display: inline-block; /* Allow horizontal alignment */
+      }
+
+      .left-container h2 {
+        font-family: 'brusher', cursive;
+        font-size: 4rem;
+        color: #000;
+        margin-bottom: 10px;
+      }
+
+      .left-container p {
+        font-family: 'dekko', sans-serif;
+        font-size: 1.25rem;
+        color: #000;
+        line-height: 1.5;
+      }
+
+      .image-container {
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px;
+        width:650px;
+        height: 235px;
+        background: linear-gradient(to bottom, #f7e5e5, #ffffff);
+        border: 3px solid #764672;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-container img {
+        width: 100%;
+         /* Ensure the image covers the container */
+        object-fit: cover; /* Maintain aspect ratio while covering */
+        border-radius: 10px;
+      }
+
+      .right-container {
+        position: relative;
+        margin: 3%;
+        top: 20%; /* Lowered slightly */
+        margin-left: 2%; /* Increased space between left and right containers */
+        width: 476px;
+        height: 673px;
+        background: linear-gradient(to bottom, #ffffff, #f7e5e5);
+        border: 5px solid #764672;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden; /* Ensure the image doesn't overflow */
+        display: inline-block; /* Allow horizontal alignment */
+        vertical-align: top; /* Align to the top */
+      }
+
+      .right-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the image covers the container */
+      }
+
       @media screen and (min-width: 1024px) {
         body {
           font-size: 16px; /* Fixed font size */
@@ -295,63 +364,24 @@
     </div>
   </header>
   <main>
-    <div class="big-container">
-      <div class="slideshow">
-        <div class="slide active">
-          <video autoplay muted loop style="width: 100%; height: 100%; border-radius: 10px;">
-            <source src="video/ABOUT ME 1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div class="slide">
-          <img src="images/slide3.jpg" alt="Slide 3" style="width: 100%; height: 100%; border-radius: 10px;">
-        </div>
+    <div class="left-container">
+      <h2>Maria Carlaine Ramos</h2>
+      <p>
+        Hi! I'm Maria Carlaine A. Ramos, but you can call me Cawii — a quiet, introverted soul who finds joy in creative things. I'm a college student with a growing passion for web development, and I love bringing ideas to life through clean, aesthetic designs. I may be shy and reserved, but I express myself best through code and creativity.
+      </p>
+      <p>
+        Outside of my studies, I enjoy discovering new ways to challenge myself and grow, whether through learning something new or stepping out of my comfort zone. I value meaningful conversations and believe that the best ideas often come from listening and observing. I’m always striving to find balance and grow in both my personal and professional life.
+      </p>
+      <div class="image-container" style="margin-top: 20px; text-align: center;">
+        <img src="about img/aboutme2.png" alt="Left Container Image" style="width: 100%; border-radius: 10px;">
       </div>
-      <div class="navigation-buttons">
-        <button class="upward-button" onclick="moveSlideUp()">
-          <img src="images/up arrow.png" alt="Upward">
-        </button>
-        <button class="downward-button" onclick="moveSlideDown()">
-          <img src="images/down arrow.png" alt="Downward">
-        </button>
-      </div>
-      
+    </div>
+    <div class="right-container">
+      <img src="about img/about1.gif" alt="Right Container Image">
     </div>
   </main>
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const navigationButtons = document.querySelector('.navigation-buttons');
-    let interval;
-
-    function showSlide(index) {
-      slides[currentSlide].classList.remove('active');
-      currentSlide = (index + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-    }
-
-    function moveSlide(direction) {
-      clearTimeout(interval); // Stop any ongoing interval
-      showSlide(currentSlide + direction);
-      startAutoSlide(); // Restart auto-slide
-    }
-
-    function moveSlideUp() {
-      moveSlide(-1); // Move to the previous slide
-    }
-
-    function moveSlideDown() {
-      moveSlide(1); // Move to the next slide
-    }
-
-    function startAutoSlide() {
-      interval = setTimeout(() => {
-        showSlide(currentSlide + 1);
-      }, 30000); // 30-second interval for auto-slide
-    }
-
-    // Start auto-slide
-    startAutoSlide();
-  </script>
+  <footer>
+    © 2025 Cawii. All rights reserved.
+  </footer>
 </body>
 </html>
