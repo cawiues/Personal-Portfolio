@@ -302,10 +302,10 @@ body {
   <div class="big-container">
     <div class="slider">
       <div class="slide active">
-        <img src="images/slide1.jpg" alt="Slide 1">
+        <img src="design and proj imgsvids/design1.gif" alt="Slide 1">
       </div>
       <div class="slide">
-        <img src="images/slide2.jpg" alt="Slide 2">
+        <img src="design and proj imgsvids/design2.gif" alt="Slide 2">
       </div>
       <div class="slide">
         <img src="images/slide3.jpg" alt="Slide 3">
@@ -316,8 +316,10 @@ body {
     </div>
   </div>
   <div class="small-container">
-    <h2 id="slide-title">Slide 1 Title</h2>
-    <p id="slide-description">Slide 1 Description</p>
+    <h2 id="slide-title">🎵 Music Player </h2>
+    <p id="slide-description">
+      A sleek, pixel-inspired music player interface currently in the design stage. It combines a retro aesthetic with modern layout elements for a clean and user-friendly experience.
+    </p>
   </div>
   <button class="side-button left-button" onclick="moveSlide(-1)">
     <img src="images/left2_button_arrow-removebg-preview.png" alt="Left Button">
@@ -328,13 +330,20 @@ body {
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
-    const slideTitles = ["Space Invaders", "Slide 2 Title", "Slide 3 Title", "Slide 4 Title"];
-    const slideDescriptions = ["Slide 1 Description"
-    
-    
-    
-    
-    , "Slide 2 Description", "Slide 3 Description", "Slide 4 Description"];
+    const slideTitles = [
+      "🎵 Music Player", 
+      "🎮 Game Intro Screen", 
+      "Pixel Art Showcase 🖼️", 
+      "Alien Adventure 🛸"
+    ];
+
+    const slideDescriptions = [
+      "A sleek, pixel-inspired music player interface currently in the design stage. It combines a retro aesthetic with modern layout elements for a clean and user-friendly experience.",
+      "A clean and modern intro screen concept with a simple layout featuring Play and Exit buttons. Designed for smooth user navigation and a polished first impression.",
+      "Dive into the world of pixel art with this showcase of creative designs. 🖼️✨<br><br>🎮 <strong>Features:</strong><br>✧ Explore various pixel art styles<br>✧ Learn about the inspiration behind each design<br>✧ Perfect for art enthusiasts and creators<br>",
+      "Embark on an Alien Adventure! Help the alien navigate through mysterious terrains and uncover hidden secrets. 🛸🌌<br><br>🎮 <strong>Controls:</strong><br>✧ Arrow keys – Move the alien<br><br>⚙️ <strong>Mechanics:</strong><br>✧ Solve puzzles to progress<br>✧ Collect artifacts for bonus points<br>✧ Discover hidden areas<br>"
+    ];
+
     const titleElement = document.getElementById('slide-title');
     const descriptionElement = document.getElementById('slide-description');
 
@@ -342,8 +351,8 @@ body {
       slides[currentSlide].classList.remove('active');
       currentSlide = (currentSlide + direction + slides.length) % slides.length;
       slides[currentSlide].classList.add('active');
-      titleElement.textContent = slideTitles[currentSlide];
-      descriptionElement.textContent = slideDescriptions[currentSlide];
+      document.getElementById('slide-title').textContent = slideTitles[currentSlide];
+      document.getElementById('slide-description').innerHTML = slideDescriptions[currentSlide];
     }
   </script>
 </body>
