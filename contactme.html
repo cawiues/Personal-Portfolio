@@ -1,299 +1,454 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Homepage Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-   @media (max-width: 770px) {
-      .nav a {
-        font-size: 0.7rem;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <style>
+      @keyframes shadowColorChange {
+          0% {
+            box-shadow: 0 4px 6px rgb(159, 8, 235);
+          }
+          25% {
+            box-shadow: 0 4px 6px rgb(213, 7, 203);
+          }
+          50% {
+            box-shadow: 0 4px 6px rgb(216, 14, 179);
+          }
+          75% {
+            box-shadow: 0 4px 6px rgb(232, 22, 204);
+          }
+          100% {
+            box-shadow: 0 4px 6px rgb(159, 8, 235);
+          }
+        }
+      
+       * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      
       }
-   }
-    @keyframes shadowColorChange {
-  0% {
-    box-shadow: 0 4px 6px rgb(159, 8, 235);
-  }
-  25% {
-    box-shadow: 0 4px 6px rgb(213, 7, 203);
-  }
-  50% {
-    box-shadow: 0 4px 6px rgb(216, 14, 179);
-  }
-  75% {
-    box-shadow: 0 4px 6px rgb(232, 22, 204);
-  }
-  100% {
-    box-shadow: 0 4px 6px rgb(159, 8, 235);
-  }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-cursor {
-  cursor: url('images/Little_Bunny_Blue__FIXED__Cursors-removebg-preview.png');
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 9%;
-  width: 100%;
-  background-color: #9373b3;
-  z-index: 2000;
-  box-shadow: 0 0.25rem 0.375rem rgba(130, 68, 161, 0.157);
-  border-bottom: 0.25rem solid #4f2f46;
-  border-radius: 0.625rem;
-  background-image: url('images/gif clouds.gif');
-  background-size: 20%;
-  background-position: center;
-}
-
-.logo {
-  position: relative;
-  width: 10rem;
-  height: auto;
-}
-
-body {
-  font-size: 16px;
-  background: url('images/background.jpg') no-repeat center center fixed;
-  background-size: cover;
+      cursor {
+        cursor: url('images/Little_Bunny_Blue__FIXED__Cursors-removebg-preview.png');
+      } 
+      
+      
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem; /* Use rem units for consistent scaling */
+        position: fixed; 
+        top: 0;
+        left: 0;
+        height: 9%;
+        width: 100%; 
+        background-color: #9373b3; /* Add a semi-transparent background */
+        z-index: 2000; /* Ensure it stays on top of other elements */
+        box-shadow: 0 0.25rem 0.375rem rgba(130, 68, 161, 0.157); /* Add a subtle shadow */
+      
+        border-bottom: 0.25rem solid #4f2f46; /* Border color */
+        border-radius: 0.625rem; /* Rounded corners */  
+      
+        background-image: url('images/gif clouds.gif'); /* Replace with your image path */
+        background-size: 20%;
+        background-position: center; /* Center the image */
+      
+      }
+      
+      
+      .logo {
+          position: relative;/* Remove absolute positioning */
+          width: 10rem; /* Use rem for consistent scaling */
+          height: auto; /* Maintain aspect ratio */
+          
+      }
+      
+      body {
+          font-size: 16px; /* Base font size for rem scaling */
+          
+          background-size: cover;   
+        
+          color: #000;
+          background: url('images/background.jpg') no-repeat center center fixed;
+          background-size: cover;
   color: #000;
   text-align: center;
   padding: 20px;
   padding-top: 80px;
 }
+      
+      
+      .big-container {
+          position: relative;
+       
+          top: 1%;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          margin: auto;
+          width: 1280px;
+          height: 790px;
+       
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+      }
 
-.content {
-  max-width: 800px;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 10px;
-}
+      .slide {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          transition: opacity 1s ease-in-out;
+      }
 
-@font-face {
-  font-family: 'Nine by Five';
-  src: url('https://cdn.cdnfonts.com/s/17493/NineByFive.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+      .slide.active {
+          opacity: 1;
+      }
 
-@font-face {
-  font-family: 'upheavtt';
-  src: url('FONTS/upheavtt.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+      .navigation-buttons {
+        position: fixed;
+        right: 20px; /* Move to the right side */
+        top: 50%; /* Center vertically */
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Add spacing between buttons */
+      }
 
-@font-face {
-  font-family: 'PixelGame';
-  src: url('FONTS/Pixel Game.otf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+      .navigation-buttons button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+      }
 
-@font-face {
-  font-family: 'bytebounce';
-  src: url('FONTS/ByteBounce.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
+      .navigation-buttons img {
+        width: 40px; /* Increase size */
+        height: 40px; /* Increase size */
+      }
 
-.nav {
-  position: static;
-  display: flex;
-  gap: 1rem;
-  font-size: 1rem;
-}
+      .upward-button:hover img, 
+      .downward-button:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.2); /* Slightly larger scale on hover */
+        transition: all 0.3s ease;
+      }
 
-.nav a {
-  text-decoration: none;
-  color: #fff;
-  background-color: #e99cdbac;
-  padding: 0.625rem 0.9375rem;
-  border-radius: 0.3125rem;
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  box-shadow: 0 0.25rem #f8ecce;
-  transition: all 0.3s ease, transform 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  font-family: bytebounce;
-}
 
-.nav a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.3);
-  transition: left 0.3s ease;
-  z-index: 1;
-}
+      
+      @font-face {
+        font-family: 'Nine by Five';
+        src: url('FONTS/nine0.ttf') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
 
-.nav a:hover::before {
-  left: 0;
-}
+      @font-face {
+        font-family: 'minecraft';
+        src: url('FONTS/Minecraft.ttf') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: 'presstart';
+        src: url('FONTS/PressStart2P-Regular.ttf') format('woff');
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      @font-face {
+        font-family: 'upheavtt';
+        src: url('FONTS/upheavtt.ttf') format('truetype');
+            
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      @font-face {
+        font-family: 'PixelGame';
+        src: url('FONTS/Pixel Game.otf') format('truetype');
+            
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      @font-face {
+        font-family: 'bytebounce';
+        src: url('FONTS/ByteBounce.ttf') format('truetype');
+            
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      @font-face {
+        font-family: 'brusher';
+        src: url('FONTS/Brusher.ttf') format('truetype');
+            
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      @font-face {
+        font-family: 'dekko';
+        src: url('FONTS/Dekko-Regular.ttf') format('truetype');
+            
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      .nav {
+        position: static; /* Remove absolute positioning */
+        display: flex;
+        gap: 1rem; /* Use rem for spacing */
+        font-size: 1rem; /* Use rem for font size */
+      }
+      
+      .nav a {
+        text-decoration: none;
+        color: #fff;
+        background-color: #e99cdbac; /* Purple background */
+        padding: 0.625rem 0.9375rem; /* Use rem for padding */
+        border-radius: 0.3125rem;
+        font-size: 1.25rem; /* Use rem for font size */
+        text-transform: uppercase;
+        box-shadow: 0 0.25rem #f8ecce; /* Shadow for 3D effect */
+        transition: all 0.3s ease, transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        font-family: bytebounce;
+      }
+      
+      .nav a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.3); /* Highlight effect */
+        transition: left 0.3s ease;
+        z-index: 1;
+      }
+      
+      .nav a:hover::before {
+        left: 0; /* Slide the highlight effect in */
+      }
+      
+      .nav a:hover {
+        background-color: #d896ff; /* Lighter purple on hover */
+        box-shadow: 0 0.125rem #5d1a8c; /* Reduced shadow for hover effect */
+        transform: translateY(-0.1875rem); /* Slight upward movement */
+        color: #000; /* Change text color */
+      }
 
-.nav a:hover {
-  background-color: #d896ff;
-  box-shadow: 0 0.125rem #5d1a8c;
-  transform: translateY(-0.1875rem);
-  color: #000;
-}
+      .name {
+        position: absolute;
+        top: 34%; /* Adjusted to move the name higher */
+        left: 5%;
+        transform: translateY(-50%);
+        font-family: 'brusher', cursive;
+        font-size: 5rem; /* Adjust size as needed */
+        color: #000000;
+        text-shadow: 2px 2px 4px rgba(66, 10, 72, 0.546); /* Add shadow effect */
+      }
 
-.message-box {
-  position: absolute;
-  top: 70%; /* Adjusted to make it lower */
-  left: 10%;
-  transform: translateY(-50%);
-  width: 40%;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-}
+      
 
-.message-box textarea {
-  bottom: 10%;
-  width: 100%;
-  height: 200px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 14px;
-  resize: none;
-  margin-bottom: 10px;
-}
+      
+      .inner-container-2  {
+        width: 100%;
+        height: 40%;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-.message-box button {
-  width: 100%;
-  padding: 10px;
-  background-color: #9373b3;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.message-box button:hover {
-  background-color: #7a5a99;
-}
+      }
 
-.social-links {
-  position: absolute;
-  top: 70%; /* Adjusted to make it lower */
-  left: 55%;
-  transform: translateY(-50%);
-  width: 30%;
-  height: 269px; /* Set height to match .message-box */
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+      .inner-container-2 .message-box {
+        width: 100%;
+        height: 150px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        font-size: 14px;
+        resize: none;
+        margin-bottom: 10px;
+      }
 
-.social-links a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
+      .inner-container-2 .submit-button {
+        width: 100%;
+        padding: 10px;
+        background-color: #9373b3;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-.social-links a:hover {
-  color: #9373b3;
-}
+      .inner-container-2 .submit-button:hover {
+        background-color: #7a5a99;
+      }
 
-.social-links img {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-}
+      .left-container {
+        position: relative;
+        margin: 3% auto;
+        top: 20%;
+        width: 700px;
+        height: 673px;
+        padding: 20px;
+    
+        border-radius: 15px;
+        text-align: left;
+        display: inline-block;
+      }
+      .right-container {
+        position: relative;
+        margin: 3% auto;
+        top: 20%;
+        margin-left: 2%;
+        width: 476px;
+        height: 673px;
+        padding: 20px;
+        border-radius: 15px;
+        overflow: hidden;
+        display: inline-block;
+        vertical-align: top;
+      }
 
-.image-container-left {
-  position: absolute;
-  top: 32%; /* Adjusted to make it lower */
-  left: 10%;
-  transform: translateY(-50%);
-  width: 40%;
-  height: 269px; /* Set height to match .message-box */
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-.image-container-right {
-  position: absolute;
-  top: 32%; /* Adjusted to make it lower */
-  left: 55%;
-  transform: translateY(-50%);
-  width: 30%;
-  height: 269px; /* Set height to match .message-box */
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-.image-container-left, .image-container-right {
-  margin: 1% relative;
-}
+      .inner-container-1{
+        width: 660px;
+        height: 200px;
+        padding: 2px;
+    
+        background: #2b1f4c;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .inner-container-3{
+        width: 437px;
+        height: 200px;
+        padding: 2px;
+    
+    background: #2b1f4c;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-/* Add media queries for better responsiveness */
-@media (max-width: 1024px) {
-  .image-container-left, .image-container-right, .message-box, .social-links {
-    position: static;
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-  }
+        .inner-container-4 {
+        width: 100%;
+        height: 35%;
+        padding: 10px;
+        background: #ffffff74;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
 
-  .image-container-left img, .image-container-right img {
-    height: auto;
-  }
-}
+      .inner-container-4 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
 
-@media (max-width: 770px) {
-  .nav a {
-    font-size: 0.7rem;
-  }
+      .square-link-container {
+        display: flex;
+        align-items: center;
+        gap: 10px; /* Add spacing between square and text link */
+      }
 
-  .image-container-left, .image-container-right, .message-box, .social-links {
-    position: static;
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-  }
+      .square-container {
+        width: 40px; /* Smaller square size */
+        height: 40px; /* Smaller square size */
+        background: rgba(200, 200, 200, 0.8);
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        display: inline-block;
+        text-decoration: none;
+        overflow: hidden; /* Ensure images fit within the square */
+      }
 
-  .image-container-left img, .image-container-right img {
-    height: auto;
-  }
-}
-</style>
+      .square-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the image covers the square */
+      }
+
+      .text-link {
+        font-size: 14px;
+        color: #000;
+        text-decoration: none;
+        font-family: 'minecraft'; /* Existing font */
+        letter-spacing: 0.5px; /* Added letter spacing */
+      }
+
+      .text-link:hover {
+        text-decoration: underline;
+        color: #9373b3;
+      }
+
+      .image-container {
+        margin-top: 20px;
+        text-align: center;
+        padding: 10px;
+        width:650px;
+        height: 235px;
+        background: linear-gradient(to bottom, #f7e5e5, #ffffff);
+        border: 3px solid #764672;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .image-container img {
+        width: 100%;
+         /* Ensure the image covers the container */
+        object-fit: cover; /* Maintain aspect ratio while covering */
+        border-radius: 10px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        body {
+          font-size: 16px; /* Fixed font size */
+        }
+      
+      
+      
+        .name {
+          font-size: 80px; /* Fixed font size */
+          top: 34%; /* Fixed position */
+          left: 5%;
+        }
+      
+        header {
+          height: 80px; /* Fixed height */
+          padding: 10px 20px; /* Fixed padding */
+        }
+      
+        .logo {
+          width: 160px; /* Fixed size */
+        }
+      
+        .nav a {
+          font-size: 20px; /* Fixed font size */
+          padding: 10px 15px; /* Fixed padding */
+        }
+      }
+      
+    </style>
 </head>
 <body>
   <header>
@@ -306,29 +461,53 @@ body {
       <a href="contactme.html#">CONTACT</a>
     </div>
   </header>
-  <div class="image-container-left">
-    <img src="images/sample1.jpg" alt="Sample Image 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-  </div>
-  <div class="image-container-right">
-    <img src="images/sample2.jpg" alt="Sample Image 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
-  </div>
-  <div class="message-box">
-    <textarea placeholder="Type your message here..."></textarea>
-    <button>Send</button>
-  </div>
-  <div class="social-links">
-    <a href="https://facebook.com" target="_blank">
-      <img src="images/facebook-icon.png" alt="Facebook"> Facebook
-    </a>
-    <a href="https://twitter.com" target="_blank">
-      <img src="images/twitter-icon.png" alt="Twitter"> Twitter
-    </a>
-    <a href="https://instagram.com" target="_blank">
-      <img src="images/instagram-icon.png" alt="Instagram"> Instagram
-    </a>
-    <a href="https://linkedin.com" target="_blank">
-      <img src="images/linkedin-icon.png" alt="LinkedIn"> LinkedIn
-    </a>
-  </div>
+  <main>
+    <div class="left-container">
+      <div class="inner-container-1">
+        <!-- Content for the first inner container -->
+        <img src="contact imgsvids/11.gif" alt="Inner 1 Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+      </div>
+      <div class="inner-container-2">
+        <textarea placeholder="Type your message here..." class="message-box"></textarea>
+        <button class="submit-button">Submit</button>
+      </div>
+    </div>
+    <div class="right-container">
+      <div class="inner-container-3">
+        <!-- Content for the first inner container in the right -->
+        <img src="contact imgsvids/33.gif" alt="Inner 3 Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+      </div>
+      <div class="inner-container-4">
+        <div class="square-link-container">
+          <a href="https://www.facebook.com/cxrlnn" class="square-container">
+            <img src="contact imgsvids/1.png" alt="Image 1">
+          </a>
+          <a href="https://www.facebook.com/cxrlnn" class="text-link">Maria Carlaine Ramos</a>
+        </div>
+        <div class="square-link-container">
+          <a href="https://www.instagram.com" class="square-container">
+            <img src="contact imgsvids/2.png" alt="Image 2">
+          </a>
+          <a href="https://www.instagram.com" class="text-link">@cxrlaineu</a>
+        </div>
+        <div class="square-link-container">
+          <a href="https://www.whatsapp.com" class="square-container">
+            <img src="contact imgsvids/3.png" alt="Image 3">
+          </a>
+          <a href="https://www.whatsapp.com" class="text-link">09628749367</a>
+        </div>
+        <div class="square-link-container">
+          <a href="https://mail.google.com/mail/u/0/#inbox" class="square-container">
+            <img src="contact imgsvids/4.png" alt="Image 4">
+          </a>
+          <a href="https://mail.google.com/mail/u/0/#inbox" class="text-link">mrcrln1013@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    © 2025 Cawii. All rights reserved.
+  </footer>
 </body>
 </html>
+``` 
