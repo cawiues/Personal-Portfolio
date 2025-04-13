@@ -285,6 +285,8 @@ body {
   transform: scale(1.1);
   transition: all 0.3s ease;
 }
+
+
 </style>
 </head>
 
@@ -300,96 +302,80 @@ body {
   </header>
 
   <body>
-  <div class="left-container">
-    <div class="slider">
-      <div class="slide active">
-        <video autoplay muted loop>
-          <source src="design and proj imgsvids/gameplay1.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+    <div class="left-container">
+      <div class="slider">
+        <div class="slide active">
+          <video autoplay muted loop>
+            <source src="design and proj imgsvids/gameplay1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="slide">
+          <video autoplay muted loop>
+            <source src="design and proj imgsvids/gameplay2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-      <div class="slide">
-        <video autoplay muted loop>
-          <source src="design and proj imgsvids/gameplay2.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="slide">
-        <video autoplay muted loop>
-          <source src="videos/slide3.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div class="slide">
-        <video autoplay muted loop>
-          <source src="videos/slide4.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </div>
-  </div> 
-  
-  <div class="right-container">
-    <h2 id="slide-title">Space Invaders</h2>
-    <p id="slide-description">
-      A minimalist pixel-style arcade shooter inspired by the classics. Though still under development, the game already features simple but catchy visuals that give off a retro vibe with a modern touch. 🎮✨ Experience the thrill of retro gaming with a modern twist! 🚀🌌<br><br>
-      
-      🎮 <strong>Controls:</strong><br>
-      ✧ A / D – Move left and right<br>
-      ✧ Shop – Shoot bullets to defend against incoming invaders<br><br>
-      
-      ⚙️ <strong>Mechanics:</strong><br>
-      ✧ Aliens slowly descend from the top of the screen<br>
-      ✧ The player must shoot them before they reach the bottom<br>
-      ✧ Increasing wave difficulty <br>
-     
-    </p>
-  </div>
-  
-  <div class="navigation-buttons">
-    <button class="upward-button" onclick="moveSlide(-1)">
-      <img src="images/up arrow.png" alt="Upward">
-    </button>
-    <button class="downward-button" onclick="moveSlide(1)">
-      <img src="images/down arrow.png" alt="Downward">
-    </button>
-  </div>
-
-  <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const slideTitles = [
-      "Space Invaders", 
-      "UFO Flappy", 
-      "Pixel Art Showcase", 
-      "Alien Adventure"
-    ];
+    </div> 
     
-    const slideDescriptions = [
-      "A minimalist pixel-style arcade shooter inspired by the classics. Though still under development, the game already features simple but catchy visuals that give off a retro vibe with a modern touch. 🎮✨ Experience the thrill of retro gaming with a modern twist! 🚀🌌<br><br>🎮 <strong>Controls:</strong><br>✧ A / D – Move left and right<br>✧ Space – Shoot bullets to defend against incoming invaders<br><br>⚙️ <strong>Mechanics:</strong><br>✧ Aliens slowly descend from the top of the screen<br>✧ The player must shoot them before they reach the bottom<br>✧ Increasing wave difficulty<br>",
-      "A pixel-style game where you control a UFO through obstacles. It’s still under development, but the minimalist retro visuals give it a fun, nostalgic feel. Take flight with UFO Flappy! Navigate your UFO through challenging obstacles! 🌟✨<br><br>🎮 <strong>Controls:</strong><br>✧ Space – Flap your UFO<br><br>⚙️ <strong>Mechanics:</strong><br>✧ Avoid crashing into pipes<br>✧ Endless gameplay for high-score chasers<br>",
-      "Dive into the world of pixel art with this showcase of creative designs. 🎨✨<br><br>🎮 <strong>Features:</strong><br>✧ Explore various pixel art styles<br>✧ Learn about the inspiration behind each design<br>✧ Perfect for art enthusiasts and creators<br>",
-      "Embark on an Alien Adventure! Help the alien navigate through mysterious terrains and uncover hidden secrets. 🛸🌌<br><br>🎮 <strong>Controls:</strong><br>✧ Arrow keys – Move the alien<br><br>⚙️ <strong>Mechanics:</strong><br>✧ Solve puzzles to progress<br>✧ Collect artifacts for bonus points<br>✧ Discover hidden areas<br>"
-    ];
-    const titleElement = document.getElementById('slide-title');
-    const descriptionElement = document.getElementById('slide-description');
+    <div class="right-container">
+      <h2 id="slide-title">Space Invaders</h2>
+      <p id="slide-description">
+        A minimalist pixel-style arcade shooter inspired by the classics. Though still under development, the game already features simple but catchy visuals that give off a retro vibe with a modern touch. 🎮✨ Experience the thrill of retro gaming with a modern twist! 🚀🌌<br><br>
+        
+        🎮 <strong>Controls:</strong><br>
+        ✧ A / D – Move left and right<br>
+        ✧ Shop – Shoot bullets to defend against incoming invaders<br><br>
+        
+        ⚙️ <strong>Mechanics:</strong><br>
+        ✧ Aliens slowly descend from the top of the screen<br>
+        ✧ The player must shoot them before they reach the bottom<br>
+        ✧ Increasing wave difficulty <br>
+      </p>
+    </div>
+    
+    <div class="navigation-buttons">
+      <button class="upward-button" onclick="moveSlide(-1)">
+        <img src="images/up arrow.png" alt="Upward">
+      </button>
+      <button class="downward-button" onclick="moveSlide(1)">
+        <img src="images/down arrow.png" alt="Downward">
+      </button>
+    </div>
 
-    function moveSlide(direction) {
-      slides[currentSlide].classList.remove('active');
-      const currentVideo = slides[currentSlide].querySelector('video');
-      if (currentVideo) {
-        currentVideo.currentTime = 0; // Reset the current video to the start
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll('.slide');
+      const slideTitles = [
+        "Space Invaders", 
+        "UFO Flappy"
+      ];
+      
+      const slideDescriptions = [
+        "A minimalist pixel-style arcade shooter inspired by the classics. Though still under development, the game already features simple but catchy visuals that give off a retro vibe with a modern touch. 🎮✨ Experience the thrill of retro gaming with a modern twist! 🚀🌌<br><br>🎮 <strong>Controls:</strong><br>✧ A / D – Move left and right<br>✧ Space – Shoot bullets to defend against incoming invaders<br><br>⚙️ <strong>Mechanics:</strong><br>✧ Aliens slowly descend from the top of the screen<br>✧ The player must shoot them before they reach the bottom<br>✧ Increasing wave difficulty<br>",
+        "A pixel-style game where you control a UFO through obstacles. It’s still under development, but the minimalist retro visuals give it a fun, nostalgic feel. Take flight with UFO Flappy! Navigate your UFO through challenging obstacles! 🌟✨<br><br>🎮 <strong>Controls:</strong><br>✧ Space – Flap your UFO<br><br>⚙️ <strong>Mechanics:</strong><br>✧ Avoid crashing into pipes<br>✧ Endless gameplay for high-score chasers<br>"
+      ];
+      const titleElement = document.getElementById('slide-title');
+      const descriptionElement = document.getElementById('slide-description');
+
+      function moveSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        const currentVideo = slides[currentSlide].querySelector('video');
+        if (currentVideo) {
+          currentVideo.currentTime = 0; // Reset the current video to the start
+        }
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        const nextVideo = slides[currentSlide].querySelector('video');
+        if (nextVideo) {
+          nextVideo.play(); // Ensure the next video plays
+        }
+        titleElement.innerHTML = slideTitles[currentSlide];
+        descriptionElement.innerHTML = slideDescriptions[currentSlide];
       }
-      currentSlide = (currentSlide + direction + slides.length) % slides.length;
-      slides[currentSlide].classList.add('active');
-      const nextVideo = slides[currentSlide].querySelector('video');
-      if (nextVideo) {
-        nextVideo.play(); // Ensure the next video plays
-      }
-      titleElement.innerHTML = slideTitles[currentSlide];
-      descriptionElement.innerHTML = slideDescriptions[currentSlide];
-    }
-  </script>
-</body>
+    </script>
+
+    </footer>
+  </body>
 </html>
-``` 
